@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voting Portal</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animated"></div>
+    <div class="container">
+        
+        <div class="main-header">
+            <div>
+                <h2>Voting Portal</h2>
+                <p id="voter-info" style="color: var(--text-muted);">Logged in as: <span id="voter-id-display"></span></p>
+            </div>
+            <div>
+                <button id="logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Logout</button>
+            </div>
+        </div>
+
+        <div id="alert-container"></div>
+
+        <div class="card full-width" id="election-status-card" style="margin-bottom: 2rem;">
+            <div style="display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;">
+                <div>
+                    <h3 id="election-title">Loading Election Data...</h3>
+                    <p id="election-status-text" style="color: var(--text-muted);"></p>
+                </div>
+                <div id="timer-container" class="hidden">
+                    <span style="margin-right: 0.5rem; color: var(--text-muted);">Time Remaining:</span>
+                    <div class="timer" id="countdown">00:00:00</div>
+                </div>
+            </div>
+        </div>
+
+        <div id="voting-area" class="hidden">
+            <h3 style="margin-bottom: 1rem; text-align: center;">Select a Candidate to Cast Your Vote</h3>
+            <div id="candidates-grid" class="grid-cards">
+                <!-- Candidate cards will be injected here -->
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="js/store.js"></script>
+    <script src="js/vote.js"></script>
+</body>
+</html>

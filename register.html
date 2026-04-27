@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Voter Registration</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animated"></div>
+    <div class="container center-content">
+        <div class="card">
+            <div class="card-header">
+                <h2>Voter Registration</h2>
+                <p>Register to participate in the upcoming election.</p>
+            </div>
+            
+            <div id="alert-container"></div>
+
+            <form id="register-form">
+                <div class="form-group">
+                    <label for="name">Full Name</label>
+                    <input type="text" id="name" class="form-control" placeholder="Enter your full name" required>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Password</label>
+                    <input type="password" id="password" class="form-control" placeholder="Create a password" required>
+                </div>
+                
+                <button type="submit" class="btn btn-primary">Register</button>
+            </form>
+
+            <div id="success-container" class="hidden" style="text-align: center; margin-top: 1.5rem;">
+                <div class="alert alert-success" style="margin-bottom: 1rem;">
+                    Registration Successful!
+                </div>
+                <p style="margin-bottom: 0.5rem; color: var(--text-muted);">Your Voter ID is:</p>
+                <div class="timer" id="display-voter-id" style="margin-bottom: 1.5rem; font-size: 1.5rem;"></div>
+                <p style="color: var(--danger); font-size: 0.875rem; margin-bottom: 1rem;">⚠️ Please copy and save this ID. You need it to login.</p>
+                <a href="login.html" class="btn btn-secondary">Go to Login</a>
+            </div>
+
+            <div class="card-footer">
+                <a href="index.html" class="text-link">Back to Home</a> | <a href="login.html" class="text-link">Already registered? Login</a>
+            </div>
+        </div>
+    </div>
+    
+    <script src="js/store.js"></script>
+    <script src="js/auth.js"></script>
+</body>
+</html>

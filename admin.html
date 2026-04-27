@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animated"></div>
+    <div class="container">
+        
+        <!-- Admin Login Section -->
+        <div id="admin-login-section" class="center-content" style="display: flex; height: 80vh;">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Admin Portal Access</h2>
+                    <p>Enter administrator credentials.</p>
+                </div>
+                
+                <div id="login-alert-container"></div>
+
+                <form id="admin-login-form">
+                    <div class="form-group">
+                        <label for="admin-username">Username</label>
+                        <input type="text" id="admin-username" class="form-control" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="admin-password">Password</label>
+                        <input type="password" id="admin-password" class="form-control" required>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary">Authenticate</button>
+                </form>
+                
+                <div class="card-footer">
+                    <a href="index.html" class="text-link">Back to Home</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Admin Dashboard Section -->
+        <div id="admin-dashboard-section" class="hidden">
+            <div class="main-header">
+                <div>
+                    <h2>Admin Dashboard</h2>
+                    <p style="color: var(--text-muted);">Manage elections and monitor results.</p>
+                </div>
+                <div>
+                    <button id="admin-logout-btn" class="btn btn-secondary" style="padding: 0.5rem 1rem;">Logout Admin</button>
+                </div>
+            </div>
+
+            <div id="dashboard-alert-container"></div>
+
+            <div class="dashboard-layout">
+                
+                <!-- Left Column -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    
+                    <!-- Create Election Card -->
+                    <div class="card" style="max-width: 100%;">
+                        <div class="card-header" style="margin-bottom: 1.5rem;">
+                            <h3 style="font-size: 1.25rem;">Create New Election</h3>
+                        </div>
+                        <form id="create-election-form">
+                            <div class="form-group">
+                                <label for="election-title">Election Title</label>
+                                <input type="text" id="election-title" class="form-control" placeholder="e.g. 2024 Presidential Election" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="election-duration">Duration</label>
+                                <select id="election-duration" class="form-control" required>
+                                    <!-- Using ms for easier testing, but matching logic -->
+                                    <option value="60000">1 Minute (Testing)</option>
+                                    <option value="3600000">1 Hour</option>
+                                    <option value="21600000">6 Hours</option>
+                                    <option value="86400000">24 Hours</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary">Start Election</button>
+                        </form>
+                    </div>
+
+                    <!-- Add Party & Candidate Card -->
+                    <div class="card" style="max-width: 100%;">
+                        <div class="card-header" style="margin-bottom: 1.5rem;">
+                            <h3 style="font-size: 1.25rem;">Add Party & Candidate</h3>
+                        </div>
+                        <form id="add-party-form">
+                            <div class="form-group">
+                                <label for="party-name">Party Name</label>
+                                <input type="text" id="party-name" class="form-control" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="candidate-name">Candidate Name</label>
+                                <input type="text" id="candidate-name" class="form-control" required>
+                            </div>
+                            <button type="submit" class="btn btn-secondary">Add Candidate</button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live Votes & Results -->
+                <div style="display: flex; flex-direction: column; gap: 2rem;">
+                    
+                    <div class="card" style="max-width: 100%;">
+                        <div class="card-header" style="margin-bottom: 1rem;">
+                            <h3 style="font-size: 1.25rem;">Live Election Status</h3>
+                            <p id="dashboard-status-text" style="color: var(--text-muted); font-size: 0.875rem;">No active election.</p>
+                        </div>
+                        
+                        <div id="live-votes-container" class="grid-cards" style="margin-top: 0;">
+                            <!-- Live vote counts will be injected here -->
+                        </div>
+                        
+                        <div id="results-container" class="hidden" style="margin-top: 2rem; border-top: 1px solid var(--border-color); padding-top: 1.5rem;">
+                            <h3 style="color: var(--secondary); margin-bottom: 1rem;">Final Results</h3>
+                            <div id="final-results-list"></div>
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    
+    <script src="js/store.js"></script>
+    <script src="js/admin.js"></script>
+</body>
+</html>
