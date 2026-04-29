@@ -110,7 +110,10 @@ document.addEventListener('DOMContentLoaded', () => {
             const card = document.createElement('div');
             card.className = 'candidate-card';
             card.innerHTML = `
-                <div style="font-size: 3rem; margin-bottom: 1rem;">👤</div>
+                <div style="display: flex; gap: 1rem; margin-bottom: 1rem; align-items: center;">
+                    ${party.candidatePhoto ? `<img src="${party.candidatePhoto}" alt="${party.candidateName}" style="width: 80px; height: 80px; object-fit: cover; border-radius: 50%;">` : '<div style="font-size: 3rem;">👤</div>'}
+                    ${party.partySymbol ? `<img src="${party.partySymbol}" alt="${party.partyName}" style="width: 60px; height: 60px; object-fit: contain; border-radius: 4px; background: white;">` : ''}
+                </div>
                 <h3>${party.candidateName}</h3>
                 <p>Party: <strong>${party.partyName}</strong></p>
                 <button class="btn btn-primary" onclick="castVote('${party.id}')">Vote</button>

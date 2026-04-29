@@ -9,10 +9,26 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault();
             
             const name = document.getElementById('name').value.trim();
+            const dob = document.getElementById('dob').value;
+            const gender = document.getElementById('gender').value;
             const password = document.getElementById('password').value;
             
-            if (!name || !password) {
+            if (!name || !dob || !gender || !password) {
                 showAlert('alert-container', 'Please fill in all fields.', 'danger');
+                return;
+            }
+
+            // Age check
+            const birthDate = new Date(dob);
+            const today = new Date();
+            let age = today.getFullYear() - birthDate.getFullYear();
+            const m = today.getMonth() - birthDate.getMonth();
+            if (m < 0 || (m === 0 && today.getDate() < birthDate.getDate())) {
+                age--;
+            }
+
+            if (age < 18) {
+                showAlert('alert-container', 'You must be at least 18 years old to register.', 'danger');
                 return;
             }
 
@@ -21,6 +37,8 @@ document.addEventListener('DOMContentLoaded', () => {
             
             const newUser = {
                 name,
+                dob,
+                gender,
                 password,
                 voterId,
                 hasVoted: false
