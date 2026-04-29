@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Public Election Results</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-animated"></div>
+    <div class="container">
+        <div class="main-header">
+            <div>
+                <h2>Election Results Dashboard</h2>
+                <p style="color: var(--text-muted);">Transparent and detailed election metrics.</p>
+            </div>
+            <div>
+                <a href="index.html" class="btn btn-secondary">Back to Home</a>
+            </div>
+        </div>
+
+        <div id="alert-container"></div>
+
+        <div id="results-content" class="hidden">
+            <div class="card full-width" style="margin-bottom: 2rem;">
+                <div style="display: flex; justify-content: space-between; flex-wrap: wrap; gap: 1rem;">
+                    <div>
+                        <h3 id="res-election-title" style="font-size: 1.5rem; color: var(--secondary);"></h3>
+                        <p>Total Registered Voters: <strong id="res-total-voters">0</strong></p>
+                        <p>Total Votes Cast: <strong id="res-total-votes">0</strong></p>
+                        <p>Voter Turnout: <strong id="res-turnout">0%</strong></p>
+                    </div>
+                    <div style="display: flex; gap: 2rem; align-items: center; background: rgba(15, 23, 42, 0.4); padding: 1rem; border-radius: 0.5rem; border: 1px solid var(--border-color);">
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem;">👨</div>
+                            <div style="font-weight: bold; color: var(--text-muted);">Male</div>
+                            <div id="res-male-votes" style="font-size: 1.25rem;">0</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem;">👩</div>
+                            <div style="font-weight: bold; color: var(--text-muted);">Female</div>
+                            <div id="res-female-votes" style="font-size: 1.25rem;">0</div>
+                        </div>
+                        <div style="text-align: center;">
+                            <div style="font-size: 1.5rem;">🧑</div>
+                            <div style="font-weight: bold; color: var(--text-muted);">Other</div>
+                            <div id="res-other-votes" style="font-size: 1.25rem;">0</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card full-width" style="margin-bottom: 2rem;">
+                <h3 style="margin-bottom: 1rem;">Candidate Rankings</h3>
+                <div id="res-rankings-list"></div>
+            </div>
+        </div>
+
+        <div id="not-ended-message" class="card center-content" style="text-align: center; padding: 3rem;">
+            <div style="font-size: 3rem; margin-bottom: 1rem;">⏳</div>
+            <h3>Results Not Available Yet</h3>
+            <p style="color: var(--text-muted);">The election is either currently active or has not been scheduled.<br>Please check back after the election duration ends.</p>
+        </div>
+
+    </div>
+    
+    <script src="js/store.js"></script>
+    <script src="js/results.js"></script>
+</body>
+</html>
